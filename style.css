@@ -1,0 +1,229 @@
+/* ===================== GLOBAL REFINEMENTS ===================== */
+:root {
+  --primary-dark: #0b132b;
+  --gold-accent: #c5a059; /* Celestial Gold */
+  --text-light: #f8f9fa;
+  --text-dim: #a6a6a6;
+  --glass: rgba(11, 19, 43, 0.85);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--primary-dark);
+  line-height: 1.8;
+}
+
+/* Background Watermark */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400px;
+  opacity: 0.02;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===================== HEADER & NAV ===================== */
+header {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  padding: 15px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 50px;
+  filter: brightness(1.2);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  margin-left: 35px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold-accent);
+}
+
+/* ===================== HERO (PARALLAX) ===================== */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(11, 19, 43, 0.6), rgba(11, 19, 43, 0.6)),
+              url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2000");
+  background-size: cover;
+  background-attachment: fixed; /* Parallax Effect */
+  background-position: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 200;
+  letter-spacing: 8px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--gold-accent);
+  letter-spacing: 3px;
+  margin-bottom: 35px;
+}
+
+.btn {
+  padding: 14px 45px;
+  border: 1px solid var(--gold-accent);
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  transition: 0.4s ease;
+}
+
+.btn:hover {
+  background: var(--gold-accent);
+  color: var(--primary-dark);
+}
+
+/* ===================== SECTIONS ===================== */
+.section {
+  padding: 100px 10%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.section-dark {
+  background: var(--primary-dark);
+  color: white;
+  margin: 40px;
+  border-radius: 40px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* ===================== MENU CARDS ===================== */
+.menu-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.menu-card {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.menu-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 19, 43, 0.9), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  opacity: 0.9;
+}
+
+.menu-card h3 {
+  color: white;
+  font-weight: 300;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.menu-card:hover img {
+  transform: scale(1.1);
+}
+
+/* ===================== GALLERY ===================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 5px;
+  filter: saturate(0.8);
+  transition: 0.5s;
+}
+
+.gallery-item img:hover {
+  filter: saturate(1.2);
+  transform: translateY(-5px);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: var(--primary-dark);
+  color: var(--text-dim);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+/* Hamburger for Mobile */
+#menu-toggle, .hamburger { display: none; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; } /* Add your mobile toggle logic here */
+  .section { padding: 60px 5%; }
+}
