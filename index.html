@@ -12,12 +12,8 @@
 
 <header>
   <img src="images/logo.png" class="logo" alt="Lune Cafe Logo">
-
-  <!-- Hamburger toggle -->
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="hamburger">☰</label>
-
-  <nav class="nav-links">
+  <div class="hamburger" id="hamburger">☰</div>
+  <nav class="nav-links" id="nav-links">
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#menu">Menu</a>
@@ -34,7 +30,7 @@
 
 <section class="section section-dark" id="about">
   <h2>The Lune Story</h2>
-  <div class="about-text">
+  <div style="max-width: 800px; margin: auto; text-align: center; color: #ffffff;">
     <p>At Lune Café & Patisserie, we craft moments of delight in every cup and bite. 
     Inspired by the calm of the moonlight, our Pune-based sanctuary is designed for those 
     who savor slow mornings and artisanal excellence.</p>
@@ -65,9 +61,6 @@
     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Interior"></div>
     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Brewing"></div>
     <div class="gallery-item"><img src="https://media.istockphoto.com/id/1194250096/photo/close-up-of-sweet-bread-cake-sliced-with-tea.jpg?s=612x612&w=0&k=20&c=Ci7PDjl8lkX9hxQAOsl3KgmUIdnKqnuzRDtC9na3os4=" alt="Pastries"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1598514983092-8d39e4f4f544" alt="Cafe Ambience"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1547592180-0c03249d4c76" alt="Dessert Close-up"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507752866040-8e6c15f4d2ec" alt="Coffee Art"></div>
   </div>
 </section>
 
@@ -81,6 +74,15 @@
 <footer>
   <p>© 2026 Lune Cafe & Patisserie. Handcrafted with love ✨</p>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
 
 </body>
 </html>
