@@ -19,9 +19,8 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: var(--primary-dark);
-  line-height: 1.8;
+  background-color: var(--primary-dark); /* Solid dark base for consistency */
+  color: var(--text-light);
 }
 
 /* Background Watermark */
@@ -46,7 +45,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -54,7 +53,7 @@ header {
 
 .logo {
   height: 50px;
-  filter: brightness(1.2);
+  filter: brightness(1.4);
 }
 
 .nav-links {
@@ -79,43 +78,44 @@ header {
 
 /* ===================== HERO (PARALLAX) ===================== */
 .hero {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(11, 19, 43, 0.6), rgba(11, 19, 43, 0.6)),
-              url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2000");
+  background: linear-gradient(rgba(11, 19, 43, 0.7), rgba(11, 19, 43, 0.7)),
+              url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2000&auto=format&fit=crop");
   background-size: cover;
-  background-attachment: fixed; /* Parallax Effect */
+  background-attachment: fixed;
   background-position: center;
   text-align: center;
-  color: white;
+  color: var(--text-light);
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(3rem, 8vw, 5.5rem);
   font-weight: 200;
-  letter-spacing: 8px;
+  letter-spacing: 10px;
   margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--gold-accent);
-  letter-spacing: 3px;
-  margin-bottom: 35px;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
 }
 
 .btn {
-  padding: 14px 45px;
-  border: 1px solid var(--gold-accent);
+  padding: 12px 32px; /* Reduced horizontal padding from 45px to 32px to make the button shorter */
+  border: 2px solid var(--gold-accent);
   background: transparent;
-  color: white;
+  color: var(--gold-accent);
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 2px;
+  border-radius: 50px;
   transition: 0.4s ease;
 }
 
@@ -124,42 +124,64 @@ header {
   color: var(--primary-dark);
 }
 
-/* ===================== SECTIONS ===================== */
-.section {
-  padding: 100px 10%;
+/* ===================== INNER SECTIONS (About to Contact) ===================== */
+/* Shared dreamy celestial dessert background */
+.section:not(#home):not(.hero) {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRlc3NlcnR8ZW58MHx8MHx8fDA%3D') center/cover no-repeat fixed;
+  min-height: 100vh; /* Ensures full visibility and proper fitting */
+  padding: 120px 10%;
   max-width: 1400px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section:not(#home):not(.hero)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 19, 43, 0.88); /* Dark overlay for readability */
+  z-index: 0;
+}
+
+.section:not(#home):not(.hero) > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-dark {
-  background: var(--primary-dark);
-  color: white;
-  margin: 40px;
-  border-radius: 40px;
+  background: transparent; /* Remove solid dark bg to let shared background show */
+  color: var(--text-light);
+  margin: 0;
+  border-radius: 0;
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   font-weight: 300;
   text-align: center;
-  margin-bottom: 50px;
-  letter-spacing: 4px;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
   text-transform: uppercase;
+  color: var(--gold-accent);
 }
 
 /* ===================== MENU CARDS ===================== */
 .menu-preview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
 .menu-card {
   position: relative;
-  height: 450px;
+  height: 500px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .menu-card img {
@@ -172,58 +194,58 @@ h2 {
 .menu-card .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(11, 19, 43, 0.9), transparent);
+  background: linear-gradient(to top, rgba(11, 19, 43, 0.95), transparent 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 40px;
-  opacity: 0.9;
+  padding: 50px;
 }
 
 .menu-card h3 {
-  color: white;
+  color: var(--text-light);
   font-weight: 300;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
+  font-size: 2rem;
+  letter-spacing: 3px;
 }
 
 .menu-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 /* ===================== GALLERY ===================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
 }
 
 .gallery-item img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 5px;
-  filter: saturate(0.8);
+  border-radius: 10px;
+  filter: saturate(0.9);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   transition: 0.5s;
 }
 
 .gallery-item img:hover {
-  filter: saturate(1.2);
-  transform: translateY(-5px);
+  filter: saturate(1.3);
+  transform: translateY(-10px) scale(1.02);
 }
 
 /* ===================== FOOTER ===================== */
 footer {
-  background: var(--primary-dark);
+  background: rgba(11, 19, 43, 0.95);
   color: var(--text-dim);
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
+  margin-top: 50px;
 }
 
-/* Hamburger for Mobile */
-#menu-toggle, .hamburger { display: none; }
-
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-  .nav-links { display: none; } /* Add your mobile toggle logic here */
-  .section { padding: 60px 5%; }
+  .nav-links { display: none; }
+  .section:not(#home):not(.hero) { padding: 80px 5%; min-height: 80vh; }
+  .menu-card { height: 400px; }
 }
