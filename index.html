@@ -12,12 +12,7 @@
 
 <header>
   <img src="images/logo.png" class="logo" alt="Lune Cafe Logo">
-
-  <!-- Hamburger for mobile -->
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="hamburger">&#9776;</label>
-
-  <!-- Navigation links -->
+  
   <nav class="nav-links">
     <a href="#home">HOME</a>
     <a href="#about">ABOUT</a>
@@ -71,9 +66,11 @@
 
 <section class="section" id="contact">
   <h2>Visit Our Sanctuary</h2>
-  <p>Lane No 6, Koregaon Park, Pune</p>
-  <p class="contact-info">8:30 AM – 11:30 PM</p>
-  <a href="https://www.instagram.com/lunecafepune/" class="btn" target="_blank">Follow @lunecafepune</a>
+  <div class="contact-info">
+    <p>Lane No 6, Koregaon Park, Pune</p>
+    <p>8:30 AM – 11:30 PM</p>
+    <a href="https://www.instagram.com/lunecafepune/" class="btn" target="_blank">Follow @lunecafepune</a>
+  </div>
 </section>
 
 <footer>
@@ -81,13 +78,11 @@
 </footer>
 
 <script>
-  // Smooth scroll for nav links
+  // Smooth scroll
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      // Close mobile menu after click
-      document.getElementById('menu-toggle').checked = false;
     });
   });
 </script>
