@@ -57,7 +57,6 @@ header {
 
 .nav-links {
   display: flex;
-  list-style: none;
   gap: 30px;
 }
 
@@ -72,18 +71,6 @@ header {
 }
 
 .nav-links a:hover {
-  color: var(--gold-accent);
-}
-
-/* Hamburger (hidden on desktop) */
-#menu-toggle {
-  display: none;
-}
-
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
   color: var(--gold-accent);
 }
 
@@ -248,6 +235,21 @@ h2 {
   transform: translateY(-10px) scale(1.02);
 }
 
+/* ===================== CONTACT ===================== */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.contact-info p, .contact-info a {
+  font-size: 1rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
 /* ===================== FOOTER ===================== */
 footer {
   background: rgba(11, 19, 43, 0.95);
@@ -259,37 +261,11 @@ footer {
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
   .nav-links {
-    position: absolute;
-    top: 65px;
-    right: 0;
-    width: 100%;
-    background: var(--primary-dark);
-    flex-direction: column;
-    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
-    display: none;
-    padding: 15px 0;
-    z-index: 1000;
-  }
-
-  #menu-toggle:checked + .hamburger + .nav-links {
-    display: flex;
-  }
-
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-links a {
-    font-size: 1rem;
-    margin: 10px 0;
+    margin-top: 10px;
   }
 
   .hero {
@@ -337,6 +313,10 @@ footer {
 
   .gallery-item img {
     height: 200px;
+  }
+
+  .contact-info {
+    gap: 20px;
   }
 
   footer {
