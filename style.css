@@ -243,9 +243,128 @@ footer {
   margin-top: 50px;
 }
 
-/* Mobile Adjustments */
+/* ===================== MOBILE STYLES ===================== */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .section:not(#home):not(.hero) { padding: 80px 5%; min-height: 80vh; }
-  .menu-card { height: 400px; }
+
+  /* Header adjustments */
+  header {
+    padding: 12px 5%;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  /* Hamburger nav */
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gold-accent);
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 100%;
+    background: var(--primary-dark);
+    flex-direction: column;
+    text-align: center;
+    z-index: 1000;
+    padding-bottom: 15px;
+  }
+
+  #menu-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 12px 0;
+    font-size: 0.95rem;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 80px 10px;
+    height: auto;
+    background-attachment: scroll; /* fixes mobile issues */
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    letter-spacing: 5px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 0.8rem;
+  }
+
+  /* Inner sections (About, Menu, Gallery, Contact) */
+  .section:not(#home):not(.hero) {
+    padding: 60px 5%;
+    min-height: auto;
+    background-attachment: scroll; /* fixes mobile rendering */
+  }
+
+  h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  /* About text */
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  /* Menu Cards */
+  .menu-preview {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .menu-card {
+    height: 350px;
+  }
+
+  .menu-card h3 {
+    font-size: 1.5rem;
+    padding: 20px;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-item img {
+    height: 200px;
+  }
+
+  /* Contact info */
+  .contact-info p {
+    font-size: 1rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 60px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Remove huge watermark on mobile */
+  body::before {
+    background-size: 180px;
+    opacity: 0.015;
+  }
 }
+
