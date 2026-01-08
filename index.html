@@ -12,6 +12,12 @@
 
 <header>
   <img src="images/logo.png" class="logo" alt="Lune Cafe Logo">
+
+  <!-- Hamburger for mobile -->
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+  <!-- Navigation links -->
   <nav class="nav-links">
     <a href="#home">HOME</a>
     <a href="#about">ABOUT</a>
@@ -80,6 +86,8 @@
     link.addEventListener('click', e => {
       e.preventDefault();
       document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu after click
+      document.getElementById('menu-toggle').checked = false;
     });
   });
 </script>
